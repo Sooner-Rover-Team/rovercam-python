@@ -4,25 +4,23 @@ The video streamer is written in python. It requires python3 version >=3.8.5, 4 
 
 ## Setting Up A Virtual Environment
 
-Linux only: install virtual environments with
+Linux only: install virtual environments with one of these commands:
 
-```bash
-sudo apt-get install python3-venv
-```
+- Ubuntu: `sudo apt install python3-venv`
+- Fedora: `sudo dnf install python3-virtualenv`
 
-Make sure you are in /SoRo-19-20/Mission Control/video_streamer/ then run
+Make sure you are in ./video_streamer/ then run:
 
 ```bash
 python3 -m venv .venv
 ```
 
-This will create a new virtual environment in /video_streamer/. The virtual environment must be activated every time the program needs to be run which can be done with:
+This will create a new virtual environment in ./video_streamer/. The virtual environment must be activated every time the program needs to be run which can be done with:
 
 Linux:
 
-```bash
-source .venv/bin/activate
-```
+- bash/zsh: `source .venv/bin/activate`
+- fish: `source .venv/bin/activate.fish`
 
 Windows (Powershell):
 
@@ -67,8 +65,12 @@ and navigate to that ip from another device.
 
 ### Notes on Usage
 
-The program will automatically look for up to 10 cameras on launch, but only 3 simultaneous streams are supported for bandwidth considerations. Additionally, specific camera indices can be specified through an argument. 
+The program will automatically look for up to 10 cameras on launch, but only 3 simultaneous streams are supported for bandwidth considerations. Additionally, specific camera indices can be specified through an argument.
 
 The resolution of cameras can be set via an argument. The default resolution is 640 by 480 but any resolution can be set by passing in a string such as "1280x720". "max" can also be passed as a resolution to set the cameras to their maximum resolution. Recordings from each camera can be started and will be saved to ./recordings/recording.avi. The quality and framerate can both be adjusted during runtime.
 
 Each stream can also be relaunched, which disposes of the current VideoCapture and VideoWriter object and creates new instances. This could be useful in case of a hardware error with a USB camera; the program can reaccess the camera without fully restarting. It also has the side effect of saving any recordings that had been captured up to that point in the execution.
+
+## Documentation
+
+This SoRo component is a new candidate for documentation! If you know markdown, and have a good idea about what's going on here, please feel free to [make a new page about it in the docs](https://sooner-rover-team.github.io/soro-documentation/html/new-page-guide.html)! :)
